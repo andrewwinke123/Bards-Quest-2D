@@ -3,10 +3,25 @@ class Overworld {
     this.element = config.element
     this.canvas = this.element.querySelector('.game-canvas')
     this.ctx = this.canvas.getContext('2d')
+    this.map = null
   }
 
   startGameLoop() {
     const step = () => {
+
+      this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height)
+
+      //Lower layer
+      this.map.drawLowerImage(this.ctx)
+
+      //Game objects
+      Object.values(this.map.gameObjects).forEach(object => {
+        object.x += 0.025
+        object.sprite.draw(this.ctx)
+      })
+      //Upper layer
+      this.map.drawUpperImage(this.ctx)
+
       requestAnimationFrame(() => {
         step()
       })
@@ -15,29 +30,7 @@ class Overworld {
   }
 
   init() {
-
+    this.map = new OverworldMap(window.OverworldMaps.FieldTwo)
     this.startGameLoop()
-    
-    const image = new Image()
-    image.onload = () => {
-      this.ctx.drawImage(image,0,0)
-    }
-    image.src = '/img/maps/field-2.png'
-    
-    //Game Objects
-    const hero = new GameObject( {
-      x: 5,
-      y: 6,
-    })
-    const wizard = new GameObject( {
-      x: 7,
-      y: 9,
-      src: '/img/characters/people/wizard.png'
-    })
-
-    setTimeout(() => {
-      hero.sprite.draw(this.ctx)
-      wizard.sprite.draw(this.ctx)
-    }, 200)
   }
 }

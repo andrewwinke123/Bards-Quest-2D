@@ -39,8 +39,8 @@ window.OverworldMaps = {
     upperSrc: '/img/maps/woods-1-top.png',
     gameObjects: {
       hero: new GameObject({
-        x: 3,
-        y: 1,
+        x: 20,
+        y: 9,
       }),
       wizard: new GameObject({
         x: 9,
