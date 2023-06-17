@@ -1,6 +1,7 @@
 class OverworldMap {
   constructor(config) {
     this.gameObjects = config.gameObjects
+    this.walls = config.walls || {}
 
     this.lowerImage = new Image()
     this.lowerImage.src = config.lowerSrc
@@ -24,6 +25,10 @@ class OverworldMap {
       utils.widthGrid(6) - cameraPerson.y,
       )
   }
+  isSpaceTaken(currentX, currentY, direction) {
+    const {x,y} = utils.nextPosition(currentX, currentY, direction)
+    return this.walls[`${x}, ${y}`] || false
+  }
 }
 
 window.OverworldMaps = {
@@ -41,6 +46,12 @@ window.OverworldMaps = {
         y: utils.widthGrid(7),
         src: '/img/characters/people/wizard.png'
       })
+    },
+    walls: {
+      [utils.asGridCoord(7,6)]: true,
+      [utils.asGridCoord(8,6)]: true,
+      [utils.asGridCoord(7,7)]: true,
+      [utils.asGridCoord(8,7)]: true,
     }
   },
   WoodsOne: {

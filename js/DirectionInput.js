@@ -20,7 +20,6 @@ class DirectionInput {
       const direction = this.map[e.code]
       if (direction && this.heldDirections.indexOf(direction) === -1) {
         this.heldDirections.unshift(direction)
-        console.log(this.heldDirections)
       }
     })
     document.addEventListener('keyup', e => {
@@ -28,7 +27,6 @@ class DirectionInput {
       const index = this.heldDirections.indexOf(direction)
       if (index > -1) {
         this.heldDirections.splice(index, 1)
-        console.log(this.heldDirections)
       }
     })
   }
