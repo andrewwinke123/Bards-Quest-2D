@@ -23,15 +23,15 @@ window.OverworldMaps = {
     lowerSrc: '/img/maps/field-2.png',
     upperSrc: '/img/maps/field-2-top.png',
     gameObjects: {
-      hero: new GameObject({
-        x: 5,
-        y: 6,
+      hero: new Person({
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
       }),
-      wizard: new GameObject({
-        x: 7,
-        y: 9,
-        src: '/img/characters/people/wizard.png'
-      })
+      // wizard: new GameObject({
+      //   x: 7,
+      //   y: 9,
+      //   src: '/img/characters/people/wizard.png'
+      // })
     }
   },
   WoodsOne: {

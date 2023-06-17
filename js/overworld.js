@@ -16,7 +16,7 @@ class Overworld {
 
       //Game objects
       Object.values(this.map.gameObjects).forEach(object => {
-        object.x += 0.025
+        object.update()
         object.sprite.draw(this.ctx)
       })
       //Upper layer
@@ -31,6 +31,10 @@ class Overworld {
 
   init() {
     this.map = new OverworldMap(window.OverworldMaps.FieldTwo)
+
+    this.directionInput = new DirectionInput()
+    this.directionInput.init()
+    
     this.startGameLoop()
   }
 }
