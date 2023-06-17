@@ -11,9 +11,15 @@ class Sprite {
     //Configure animation & initial state
     this.animations = config.animations || {
       'idle-down': [ [0,0] ],
-      'walk-down' : [ [1,0], [0,0], [3,0], [0,0] ]
+      'idle-right': [ [0,1] ],
+      'idle-up': [ [0,2] ],
+      'idle-left': [ [0,3] ],
+      'walk-down' : [ [1,0], [0,0], [3,0], [0,0] ],
+      'walk-right' : [ [1,1], [0,1], [3,1], [0,1] ],
+      'walk-left' : [ [1,2], [0,2], [3,2], [0,2] ],
+      'walk-up' : [ [1,3], [0,3], [3,3], [0,3] ]
     }
-    this.currentAnimation = 'walk-down' //config.currentAnimation || 'idle-down'
+    this.currentAnimation = 'walk-right' //config.currentAnimation || 'idle-down'
     this.currentAnimationFrame = 0
     this.animationFrameLimit = config.animationFrameLimit || 16
     this.animationFrameProgress = this.animationFrameLimit
