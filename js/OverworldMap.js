@@ -44,11 +44,11 @@ window.OverworldMaps = {
         x: utils.withGrid(5),
         y: utils.withGrid(6),
       }),
-      // wizard: new Person({
-      //   x: utils.withGrid(9),
-      //   y: utils.withGrid(7),
-      //   src: '/img/characters/people/wizard.png'
-      // })
+      wizard: new Person({
+        x: utils.withGrid(9),
+        y: utils.withGrid(7),
+        src: '/img/characters/people/wizard.png'
+      })
     }
   }
 }

@@ -21,7 +21,7 @@ class Sprite {
     }
     this.currentAnimation = 'walk-right' //config.currentAnimation || 'idle-down'
     this.currentAnimationFrame = 0
-    this.animationFrameLimit = config.animationFrameLimit || 16
+    this.animationFrameLimit = config.animationFrameLimit || 4
     this.animationFrameProgress = this.animationFrameLimit
 
     //Reference game object
@@ -30,6 +30,14 @@ class Sprite {
 
   get frame() {
     return this.animations[this.currentAnimation][this.currentAnimationFrame]
+  }
+
+  setAnimation(key) {
+    if (this.currentAnimation !== key) {
+      this.currentAnimation = key
+      this.currentAnimationFrame = 0
+      this.animationFrameProgress = this.animationFrameLimit
+    }
   }
 
   updateAnimationProgress() {

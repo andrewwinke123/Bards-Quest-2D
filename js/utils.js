@@ -1,4 +1,4 @@
-window.utils = {
+const utils = {
   withGrid(n) {
     return n * 16
   }
