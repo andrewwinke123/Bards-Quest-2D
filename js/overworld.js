@@ -32,7 +32,7 @@ class Overworld {
   }
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.FieldTwo)
+    this.map = new OverworldMap(window.OverworldMaps.WoodsOne)
 
     this.directionInput = new DirectionInput()
     this.directionInput.init()

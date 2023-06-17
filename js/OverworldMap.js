@@ -24,6 +24,7 @@ window.OverworldMaps = {
     upperSrc: '/img/maps/field-2-top.png',
     gameObjects: {
       hero: new Person({
+        isPlayerControlled: true,
         x: utils.withGrid(5),
         y: utils.withGrid(6),
       }),
@@ -38,13 +39,14 @@ window.OverworldMaps = {
     lowerSrc: '/img/maps/woods-1.png',
     upperSrc: '/img/maps/woods-1-top.png',
     gameObjects: {
-      hero: new GameObject({
-        x: 20,
-        y: 9,
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.withGrid(5),
+        y: utils.withGrid(6),
       }),
-      wizard: new GameObject({
-        x: 9,
-        y: 2,
+      wizard: new Person({
+        x: utils.withGrid(9),
+        y: utils.withGrid(7),
         src: '/img/characters/people/wizard.png'
       })
     }
