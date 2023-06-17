@@ -9,12 +9,20 @@ class OverworldMap {
     this.upperImage.src = config.upperSrc
   }
 
-  drawLowerImage(ctx) {
-    ctx.drawImage(this.lowerImage, 0, 0)
+  drawLowerImage(ctx, cameraPerson) {
+    ctx.drawImage(
+      this.lowerImage,
+      utils.widthGrid(10.5) - cameraPerson.x,
+      utils.widthGrid(6) - cameraPerson.y,
+      )
   }
 
-  drawUpperImage(ctx) {
-    ctx.drawImage(this.upperImage, 0, 0)
+  drawUpperImage(ctx, cameraPerson) {
+    ctx.drawImage(
+      this.upperImage,
+      utils.widthGrid(10.5) - cameraPerson.x,
+      utils.widthGrid(6) - cameraPerson.y,
+      )
   }
 }
 
@@ -25,12 +33,12 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(6),
+        x: utils.widthGrid(5),
+        y: utils.widthGrid(6),
       }),
       wizard: new Person({
-        x: utils.withGrid(9),
-        y: utils.withGrid(7),
+        x: utils.widthGrid(9),
+        y: utils.widthGrid(7),
         src: '/img/characters/people/wizard.png'
       })
     }
@@ -41,12 +49,12 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.withGrid(5),
-        y: utils.withGrid(6),
+        x: utils.widthGrid(5),
+        y: utils.widthGrid(6),
       }),
       wizard: new Person({
-        x: utils.withGrid(9),
-        y: utils.withGrid(7),
+        x: utils.widthGrid(9),
+        y: utils.widthGrid(7),
         src: '/img/characters/people/wizard.png'
       })
     }
