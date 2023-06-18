@@ -8,6 +8,8 @@ class OverworldMap {
 
     this.upperImage = new Image()
     this.upperImage.src = config.upperSrc
+
+    this.isCutscenePlaying = false
   }
 
   drawLowerImage(ctx, cameraPerson) {
@@ -31,9 +33,12 @@ class OverworldMap {
   }
 
   mountObjects() {
-    Object.values(this.gameObjects).forEach(o => {
+    Object.keys(this.gameObjects).forEach(key => {
+      let object = this.gameObjects[key]
+      object.id = key
       //in the future: determine if object should mount
-      o.mount(this)
+      object.mount(this)
+      object.mount(this)
     })
   }
 
@@ -81,8 +86,8 @@ window.OverworldMaps = {
         y: utils.widthGrid(6),
       }),
       wizard: new Person({
-        x: utils.widthGrid(9),
-        y: utils.widthGrid(7),
+        x: utils.widthGrid(7),
+        y: utils.widthGrid(22),
         src: '/img/characters/people/wizard.png'
       })
     }
@@ -93,8 +98,8 @@ window.OverworldMaps = {
       gameObjects: {
         hero: new Person({
           isPlayerControlled: true,
-          x: utils.widthGrid(5),
-          y: utils.widthGrid(6),
+          x: utils.widthGrid(7),
+          y: utils.widthGrid(22),
         }),
         wizard: new Person({
           x: utils.widthGrid(9),
@@ -109,13 +114,47 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.widthGrid(5),
-        y: utils.widthGrid(6),
+        x: utils.widthGrid(7),
+        y: utils.widthGrid(22),
       }),
       wizard: new Person({
         x: utils.widthGrid(9),
         y: utils.widthGrid(7),
         src: '/img/characters/people/wizard.png'
+      })
+    }
+  },
+  WoodsFour: {
+    lowerSrc: '/img/maps/woods-4.png',
+    upperSrc: '/img/maps/woods-4-top.png',
+    gameObjects: {
+      hero: new Person({
+        isPlayerControlled: true,
+        x: utils.widthGrid(7),
+        y: utils.widthGrid(22),
+      }),
+      wizard: new Person({
+        x: utils.widthGrid(9),
+        y: utils.widthGrid(7),
+        src: '/img/characters/people/wizard.png',
+        behaviorLoop: [
+          { type: 'stand', direction: 'left', time: 800 },
+          { type: 'stand', direction: 'up', time: 800 },
+          { type: 'stand', direction: 'right', time: 1200 },
+          { type: 'stand', direction: 'up', time: 300 },
+        ]
+      }),
+      wizard2: new Person({
+        x: utils.widthGrid(10),
+        y: utils.widthGrid(8),
+        src: '/img/characters/people/wizard.png',
+        behaviorLoop: [
+          { type: 'walk', direction: 'left' },
+          { type: 'stand', direction: 'up', time: 800 },
+          { type: 'walk', direction: 'up' },
+          { type: 'walk', direction: 'right' },
+          { type: 'walk', direction: 'down' },
+        ]
       })
     }
   }

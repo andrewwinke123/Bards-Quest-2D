@@ -53,7 +53,7 @@ class Overworld {
 }
 
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.WoodsTwo)
+    this.map = new OverworldMap(window.OverworldMaps.WoodsFour)
     this.map.mountObjects()
 
     this.directionInput = new DirectionInput()
