@@ -41,6 +41,7 @@ class Person extends GameObject{
         return; //stop function execution if space is not free
       }
       //ready to walk
+      state.map.moveWall(this.x, this.y, this.direction)
       this.movingProgressRemaining = 16
     }
   }
