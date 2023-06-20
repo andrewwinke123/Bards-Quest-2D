@@ -41,6 +41,21 @@ class OverworldMap {
     })
   }
 
+  async startCutscene(events) {
+    this.isCutscenePlaying = true
+    for (let i = 0; i < events.length; i++) {
+      const eventHandler = new OverworldEvent({
+        event: events[i],
+        map: this,
+      })
+      await eventHandler.init()
+    }
+    this.isCutscenePlaying = false
+
+    //reset NPCs to do their idle behavior
+    Object.values(this.gameObjects).forEach(object => object.doBehaviorEvent(this))
+  }
+
   addWall(x,y) {
     this.walls[`${x}, ${y}`] = true
   }

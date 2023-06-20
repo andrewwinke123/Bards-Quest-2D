@@ -62,5 +62,16 @@ class Overworld {
     this.directionInput.init()
     
     this.startGameLoop()
+
+    this.map.startCutscene([
+      { who: 'hero', type: 'walk', direction: 'down' },
+      { who: 'hero', type: 'walk', direction: 'down' },
+      { who: 'hero', type: 'walk', direction: 'left' },
+      { who: 'hero', type: 'walk', direction: 'left' },
+      { who: 'hero', type: 'walk', direction: 'up' },
+      { who: 'wizard', type: 'walk', direction: 'down' },
+      { who: 'wizard', type: 'stand', direction: 'down', time:100 },
+      { who: 'wizard', type: 'walk', direction: 'right' },
+    ])
   }
 }
