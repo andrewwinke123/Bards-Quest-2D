@@ -35,7 +35,9 @@ class Overworld {
       this.map.drawLowerImage(this.ctx, cameraPerson)
 
       //Game objects
-      Object.values(this.map.gameObjects).forEach(object => {
+      Object.values(this.map.gameObjects).sort((a,b) => {
+        return a.y - b.y
+      }).forEach(object => {
         object.update({
           arrow: this.directionInput.direction,
           map: this.map,
