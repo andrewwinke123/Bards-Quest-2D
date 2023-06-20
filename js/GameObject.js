@@ -11,7 +11,8 @@ class GameObject {
     })
 
     this.behaviorLoop = config.behaviorLoop || []
-    this.behaviorLoop = 0
+    this.behaviorLoopIndex = 0
+
   }
 
   mount(map) {
@@ -30,6 +31,7 @@ class GameObject {
   }
 
   async doBehaviorEvent(map) {
+    console.log('map in doBehaviorEvent', map)
     //dont do anything if there is a cutscene or if there is nothing to do
     if (map.isCutscenePlaying || this.behaviorLoop.length === 0) {
       return
@@ -42,7 +44,7 @@ class GameObject {
     await eventHandler.init()
     //setting nect event to fire
     this.behaviorLoopIndex += 1
-    if (rhis.behaviorLoopIndex === this.behaviorLoop.length) {
+    if (this.behaviorLoopIndex === this.behaviorLoop.length) {
       this.behaviorLoopIndex = 0
     }
 

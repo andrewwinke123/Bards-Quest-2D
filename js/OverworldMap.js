@@ -38,7 +38,6 @@ class OverworldMap {
       object.id = key
       //in the future: determine if object should mount
       object.mount(this)
-      object.mount(this)
     })
   }
 
@@ -130,12 +129,12 @@ window.OverworldMaps = {
     gameObjects: {
       hero: new Person({
         isPlayerControlled: true,
-        x: utils.widthGrid(7),
-        y: utils.widthGrid(22),
+        x: utils.widthGrid(15),
+        y: utils.widthGrid(10),
       }),
       wizard: new Person({
         x: utils.widthGrid(9),
-        y: utils.widthGrid(7),
+        y: utils.widthGrid(10),
         src: '/img/characters/people/wizard.png',
         behaviorLoop: [
           { type: 'stand', direction: 'left', time: 800 },
