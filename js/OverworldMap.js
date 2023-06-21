@@ -1,6 +1,8 @@
 class OverworldMap {
   constructor(config) {
+    this.overworld = null
     this.gameObjects = config.gameObjects
+    this.cutsceneSpaces = config.cutsceneSpaces || {}
     this.walls = config.walls || {}
 
     this.lowerImage = new Image()
@@ -62,9 +64,20 @@ class OverworldMap {
     const match = Object.values(this.gameObjects).find(object => {
       return `${object.x}, ${object.y}` === `${nextCoords.x}, ${nextCoords.y}`
     })
-    console.log({ match })
+    if (!this.isCutscenePlaying && match && match.talking.length) {
+      this.startCutscene(match.talking[0].events)
+    }
   }
 
+  checkForFootstepsCutscene() {
+    const hero = this.gameObjects['hero']
+    const match = this.cutsceneSpaces[ `${hero.x}, ${hero.y}` ]
+    if (!this.isCutscenePlaying && match) {
+      this.startCutscene( match[0].events )
+    }
+  }
+
+  
   addWall(x,y) {
     this.walls[`${x}, ${y}`] = true
   }
@@ -96,7 +109,30 @@ window.OverworldMaps = {
     },
     walls: {
       [utils.asGridCoord(10,7)]: true,
+    },
+    cutsceneSpaces: {
+      [utils.asGridCoord(6,6)]: [
+        {
+          events: [
 
+
+            { who: 'wizard', type: 'walk', direction: 'right'},
+            { who: 'wizard', type: 'stand', direction: 'down', time: 500},
+            { type: 'textMessage', text:'hey, watch out' },
+            { who: 'wizard', type: 'walk', direction: 'up'},
+
+            { who: 'hero', type: 'walk', direction: 'down'},
+            { who: 'hero', type: 'walk', direction: 'left'},
+          ]
+        }
+      ],
+      [utils.asGridCoord(9,5)]: [
+        {
+          events: [
+            { type: 'changeMap', map: 'WoodsOne'}
+          ]
+        }
+      ]
     }
   },
   WoodsOne: {
@@ -169,8 +205,9 @@ window.OverworldMaps = {
         talking: [
           {
             events: [
-              { type: 'textMessage', text: 'Hello world'},
+              { type: 'textMessage', text: 'Hello world', faceHero: 'wizard'},
               { type: 'textMessage', text: 'Hows it going?'},
+              {who: 'hero', type: 'walk', direction: 'right', time: 800 }
             ]
           }
         ]

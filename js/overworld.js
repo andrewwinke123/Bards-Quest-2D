@@ -61,11 +61,26 @@ bindActionInput() {
   })
 }
 
+bindHeroPositionCheck() {
+  document.addEventListener('PersonWalkingComplete', e => {
+    if (e.detail.whoId === 'hero') {
+      //heros position has changed
+      this.map.checkForFootstepsCutscene()
+    }
+  })
+}
+
+startMap(mapConfig) {
+  this.map = new OverworldMap(mapConfig)
+  this.map.overworld = this
+  this.map.mountObjects()
+}
+
   init() {
-    this.map = new OverworldMap(window.OverworldMaps.WoodsFour)
-    this.map.mountObjects()
+    this.startMap(window.OverworldMaps.FieldTwo)
 
     this.bindActionInput()
+    this.bindHeroPositionCheck()
 
     this.directionInput = new DirectionInput()
     this.directionInput.init()
