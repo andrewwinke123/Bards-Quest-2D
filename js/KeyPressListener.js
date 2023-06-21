@@ -14,5 +14,12 @@ class KeyPressListener {
         keySafe = true
       }
     }
+    document.addEventListener('keydown', this.keydownFunction)
+    document.addEventListener('keyup', this.keyupfunction)
+  }
+  
+  unbind() {
+    document.removeEventListener('keydown', this.keydownFunction)
+    document.removeEventListener('keyup', this.keyupfunction)
   }
 }
