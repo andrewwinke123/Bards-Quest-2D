@@ -87,9 +87,9 @@ startMap(mapConfig) {
     
     this.startGameLoop()
 
-    this.map.startCutscene([
-      { type: 'changeMap', map: 'WoodsOne'},
-      // { type: 'textMessage', text: 'Hello friend, welcome!'},
-    ])
+    // this.map.startCutscene([
+    //   { type: 'changeMap', map: 'WoodsOne'},
+    //   // { type: 'textMessage', text: 'Hello friend, welcome!'},
+    // ])
   }
 }
