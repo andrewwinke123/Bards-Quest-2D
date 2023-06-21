@@ -87,15 +87,8 @@ startMap(mapConfig) {
     
     this.startGameLoop()
 
-    // this.map.startCutscene([
-    //   { who: 'hero', type: 'walk', direction: 'left' },
-    //   { who: 'hero', type: 'walk', direction: 'left' },
-    //   { who: 'hero', type: 'walk', direction: 'left' },
-    //   { who: 'hero', type: 'walk', direction: 'left' },
-    //   { who: 'hero', type: 'walk', direction: 'down' },
-    //   { who: 'wizard', type: 'walk', direction: 'down' },
-    //   { who: 'wizard', type: 'walk', direction: 'right' },
-    //   { type: 'textMessage', text: 'Hello world'},
-    // ])
+    this.map.startCutscene([
+      { type: 'textMessage', text: 'Hello friend, welcome!'},
+    ])
   }
 }
