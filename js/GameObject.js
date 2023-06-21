@@ -16,7 +16,6 @@ class GameObject {
   }
 
   mount(map) {
-    console.log('mounting')
     this.isMounted = true
     map.addWall(this.x, this.y)
 
@@ -31,7 +30,6 @@ class GameObject {
   }
 
   async doBehaviorEvent(map) {
-    console.log('map in doBehaviorEvent', map)
     //dont do anything if there is a cutscene or if there is nothing to do
     if (map.isCutscenePlaying || this.behaviorLoop.length === 0 || this.isStanding) {
       return

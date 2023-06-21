@@ -5,7 +5,6 @@ class OverworldEvent {
   }
 
   stand(resolve) {
-    console.log('map in walk', this.map)
     const who = this.map.gameObjects[ this.event.who ]
     who.startBehavior({
       map: this.map
@@ -27,7 +26,6 @@ class OverworldEvent {
   }
 
   walk(resolve) {
-    console.log('map in walk', this.map)
     const who = this.map.gameObjects[ this.event.who ]
     who.startBehavior({
       map: this.map

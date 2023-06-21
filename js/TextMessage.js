@@ -19,6 +19,11 @@ class TextMessage {
       //close the text message
       this.done()
     })
+
+    this.actionListener = new KeyPressListener('Enter', () => {
+      this.actionListener.unbind()
+      this.done()
+    })
   }
 
   done() {
@@ -32,5 +37,3 @@ class TextMessage {
   }
 }
 
-
-window.TextMessage = TextMessage

@@ -34,9 +34,8 @@ class Person extends GameObject{
 
   //set character direction to behavior
   startBehavior(state, behavior) {
-    console.log('state.map in startBehavior', state)
     this.direction = behavior.direction
-    console.log('Hero position:', this.x, this.y)
+    // console.log('Hero position:', this.x, this.y)
     if (behavior.type === 'walk') {
       //stop here if space is not free
       if (state.map.isSpaceTaken(this.x, this.y, this.direction)) {

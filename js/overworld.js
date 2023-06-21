@@ -54,24 +54,33 @@ class Overworld {
   step()
 }
 
+bindActionInput() {
+  new KeyPressListener('Enter', () => {
+    //asking if there is an NPC to talk to
+    this.map.checkForActionCutscene()
+  })
+}
+
   init() {
     this.map = new OverworldMap(window.OverworldMaps.WoodsFour)
     this.map.mountObjects()
+
+    this.bindActionInput()
 
     this.directionInput = new DirectionInput()
     this.directionInput.init()
     
     this.startGameLoop()
 
-    this.map.startCutscene([
-      { who: 'hero', type: 'walk', direction: 'left' },
-      { who: 'hero', type: 'walk', direction: 'left' },
-      { who: 'hero', type: 'walk', direction: 'left' },
-      { who: 'hero', type: 'walk', direction: 'left' },
-      { who: 'hero', type: 'walk', direction: 'down' },
-      { who: 'wizard', type: 'walk', direction: 'down' },
-      { who: 'wizard', type: 'walk', direction: 'right' },
-      { type: 'textMessage', text: 'Hello world'},
-    ])
+    // this.map.startCutscene([
+    //   { who: 'hero', type: 'walk', direction: 'left' },
+    //   { who: 'hero', type: 'walk', direction: 'left' },
+    //   { who: 'hero', type: 'walk', direction: 'left' },
+    //   { who: 'hero', type: 'walk', direction: 'left' },
+    //   { who: 'hero', type: 'walk', direction: 'down' },
+    //   { who: 'wizard', type: 'walk', direction: 'down' },
+    //   { who: 'wizard', type: 'walk', direction: 'right' },
+    //   { type: 'textMessage', text: 'Hello world'},
+    // ])
   }
 }

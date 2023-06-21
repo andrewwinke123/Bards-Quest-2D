@@ -15,11 +15,11 @@ class KeyPressListener {
       }
     }
     document.addEventListener('keydown', this.keydownFunction)
-    document.addEventListener('keyup', this.keyupfunction)
+    document.addEventListener('keyup', this.keyupFunction)
   }
   
   unbind() {
     document.removeEventListener('keydown', this.keydownFunction)
-    document.removeEventListener('keyup', this.keyupfunction)
+    document.removeEventListener('keyup', this.keyupFunction)
   }
 }
