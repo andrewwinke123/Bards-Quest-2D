@@ -1,1 +1,1 @@
-A 2-D follow up to my first browser game, Bard's Quest.
+Under construction portfolio site!
