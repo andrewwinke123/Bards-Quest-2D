@@ -11,16 +11,16 @@
   color: var(--menu-font-color);
 }
 
-.TextMessage_p {
+.TexttMessage_p {
   margin: 0;
   font-size: 12px;
 }
 
-.TexMessage span {
+.TextMessage span {
   opacity: 0;
 }
 
-.TexMessage span.revealed {
+.TextMessage span.revealed {
   opacity: 1;
 }
 
